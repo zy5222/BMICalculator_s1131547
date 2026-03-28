@@ -21,15 +21,20 @@ namespace BMI計算機_s1131547
         {
             double height = double.Parse(txtHeight.Text) / 100;
             double weight = double.Parse(txtWeight.Text);
-            // 計算BMI
             double bmi = weight / (height * height);
 
-            // 顯示結果
             lblResult.Text = $"{bmi:F2}";
 
             string[] strResultList = { "體重過輕", "健康體位", "體位過重", "輕度肥胖", "中度肥胖", "重度肥胖" };
-            Color[] colorList = { Color.Blue, Color.Green, Color.Orange, Color.DarkOrange, Color.Red, Color.Purple };
-
+            Color[] colorList = {
+            Color.FromArgb(123, 139, 111), // 體重過輕 - 灰綠色
+            Color.FromArgb(152, 175, 120), // 健康體位 - 灰豆綠
+            Color.FromArgb(202, 185, 135), // 體位過重 - 暖灰黃 
+            Color.FromArgb(193, 154, 107), // 輕度肥胖 - 駝色 
+            Color.FromArgb(178, 102, 89),  // 中度肥胖 - 煙燻玫瑰
+            Color.FromArgb(121, 85, 72)    // 重度肥胖 - 灰褐色
+            };
+        
             string strResult = "";
             Color colorResult = Color.Black;
             int resultIndex = 0;
@@ -61,8 +66,23 @@ namespace BMI計算機_s1131547
             colorResult = colorList[resultIndex];
 
             lblResult.Text = $"{bmi:F2} ({strResult})";
-            lblResult.BackColor = colorResult;
+            lblResult.ForeColor = colorResult;
+
+            string historyItem = $"身高:{txtHeight.Text} 體重:{txtWeight.Text} BMI:{bmi:F2} ({strResult})";
+
+            lstHistory.Items.Add(historyItem);
+            lstHistory.TopIndex = lstHistory.Items.Count - 1;
         }
 
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtHeight.Clear();
+            txtWeight.Clear();
+
+            lblResult.Text = "";
+
+            lblResult.ForeColor = Color.Black;
+            txtHeight.Focus();
+        }
     }
 }

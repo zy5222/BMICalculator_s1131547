@@ -37,6 +37,8 @@
             this.grpOutput = new System.Windows.Forms.GroupBox();
             this.lblResult = new System.Windows.Forms.Label();
             this.lblBMI = new System.Windows.Forms.Label();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.lstHistory = new System.Windows.Forms.ListBox();
             this.grpInput.SuspendLayout();
             this.grpOutput.SuspendLayout();
             this.SuspendLayout();
@@ -44,6 +46,7 @@
             // grpInput
             // 
             this.grpInput.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.grpInput.Controls.Add(this.btnClear);
             this.grpInput.Controls.Add(this.btnRun);
             this.grpInput.Controls.Add(this.txtWeight);
             this.grpInput.Controls.Add(this.txtHeight);
@@ -59,24 +62,27 @@
             // 
             // btnRun
             // 
-            this.btnRun.Location = new System.Drawing.Point(402, 49);
+            this.btnRun.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnRun.Location = new System.Drawing.Point(403, 29);
             this.btnRun.Name = "btnRun";
-            this.btnRun.Size = new System.Drawing.Size(75, 62);
+            this.btnRun.Size = new System.Drawing.Size(75, 46);
             this.btnRun.TabIndex = 4;
             this.btnRun.Text = "計算";
-            this.btnRun.UseVisualStyleBackColor = true;
+            this.btnRun.UseVisualStyleBackColor = false;
             this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
             // 
             // txtWeight
             // 
+            this.txtWeight.BackColor = System.Drawing.SystemColors.MenuBar;
             this.txtWeight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtWeight.Location = new System.Drawing.Point(138, 93);
+            this.txtWeight.Location = new System.Drawing.Point(141, 93);
             this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Size = new System.Drawing.Size(223, 30);
+            this.txtWeight.Size = new System.Drawing.Size(220, 30);
             this.txtWeight.TabIndex = 3;
             // 
             // txtHeight
             // 
+            this.txtHeight.BackColor = System.Drawing.SystemColors.MenuBar;
             this.txtHeight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtHeight.Location = new System.Drawing.Point(141, 45);
             this.txtHeight.Name = "txtHeight";
@@ -117,12 +123,13 @@
             // lblResult
             // 
             this.lblResult.AutoSize = true;
+            this.lblResult.BackColor = System.Drawing.SystemColors.MenuBar;
             this.lblResult.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblResult.Location = new System.Drawing.Point(196, 50);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(252, 24);
+            this.lblResult.Size = new System.Drawing.Size(192, 24);
             this.lblResult.TabIndex = 3;
-            this.lblResult.Text = "                                                            ";
+            this.lblResult.Text = "                                             ";
             this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblBMI
@@ -134,11 +141,35 @@
             this.lblBMI.TabIndex = 2;
             this.lblBMI.Text = "身體質量指數(BMI)";
             // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnClear.Location = new System.Drawing.Point(403, 97);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 46);
+            this.btnClear.TabIndex = 5;
+            this.btnClear.Text = "清除";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // lstHistory
+            // 
+            this.lstHistory.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.lstHistory.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lstHistory.FormattingEnabled = true;
+            this.lstHistory.ItemHeight = 19;
+            this.lstHistory.Location = new System.Drawing.Point(617, 60);
+            this.lstHistory.Name = "lstHistory";
+            this.lstHistory.Size = new System.Drawing.Size(346, 289);
+            this.lstHistory.TabIndex = 2;
+            // 
             // frmBMI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(889, 508);
+            this.BackColor = System.Drawing.SystemColors.Menu;
+            this.ClientSize = new System.Drawing.Size(1032, 547);
+            this.Controls.Add(this.lstHistory);
             this.Controls.Add(this.grpOutput);
             this.Controls.Add(this.grpInput);
             this.Name = "frmBMI";
@@ -163,6 +194,8 @@
         private System.Windows.Forms.TextBox txtWeight;
         private System.Windows.Forms.TextBox txtHeight;
         private System.Windows.Forms.Button btnRun;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.ListBox lstHistory;
     }
 }
 
